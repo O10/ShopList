@@ -88,6 +88,7 @@ public class ItemsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View topView = inflater.inflate(R.layout.fragment_items_list, container, false);
         shoppingItemsList = (ListView) topView.findViewById(R.id.items_list_view);
+        shoppingItemsList.setEmptyView(topView.findViewById(R.id.empty_list_text));
         return topView;
     }
 

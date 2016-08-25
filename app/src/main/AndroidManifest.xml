@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SingleItemActivity"/>
+        <activity android:name=".SingleItemActivity" />
     </application>
 
 </manifest>

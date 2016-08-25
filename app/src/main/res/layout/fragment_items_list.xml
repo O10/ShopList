@@ -8,7 +8,17 @@
         android:id="@+id/items_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        />
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/empty_list_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:alpha="0.7"
+        android:gravity="center_horizontal"
+        android:text="@string/no_res"
+        android:textSize="32sp"
+        android:visibility="gone" />
 
 </LinearLayout>
