@@ -1,4 +1,4 @@
-package com.example.shoplist.model;
+package com.example.shoplist.database;
 
 import com.j256.ormlite.dao.Dao;
 

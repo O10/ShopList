@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-public class ShopListActivity extends AppCompatActivity {
+import com.example.shoplist.views.NonSwipeViewPager;
+
+public class ShopListActivity extends AppCompatActivity implements ItemsListFragment.ListFragmentInterface {
     static final int NUM_TABS = 2;
 
-    private ViewPager viewPager;
+    private NonSwipeViewPager viewPager;
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private FloatingActionButton floatingButton;
@@ -29,7 +31,7 @@ public class ShopListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
 
-        viewPager = (ViewPager) findViewById(R.id.v_pager);
+        viewPager = (NonSwipeViewPager) findViewById(R.id.v_pager);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         floatingButton = (FloatingActionButton) findViewById(R.id.fab);
@@ -111,6 +113,23 @@ public class ShopListActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onContextualUp() {
+        tabLayout.setVisibility(View.GONE);
+        floatingButton.startAnimation(hideFabAnimation);
+        viewPager.setShouldSwipe(false);
+    }
+
+    @Override
+    public void onContextualDown() {
+        tabLayout.setVisibility(View.VISIBLE);
+        floatingButton.startAnimation(showFabAnimation);
+        viewPager.setShouldSwipe(true);
+    }
+
+    /**
+     * Adapter showing 2 pages : current and archived shopping items.
+     */
     private class ItemsViewPagerAdapter extends FragmentPagerAdapter {
 
         public ItemsViewPagerAdapter(FragmentManager fm) {

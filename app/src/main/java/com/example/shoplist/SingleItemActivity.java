@@ -16,10 +16,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.shoplist.model.DatabaseHelper;
-import com.example.shoplist.model.ShoppingItem;
-import com.example.shoplist.model.ShoppingItemDao;
+import com.example.shoplist.database.DatabaseHelper;
+import com.example.shoplist.database.ShoppingItem;
+import com.example.shoplist.database.ShoppingItemDao;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -106,9 +108,14 @@ public class SingleItemActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.menu_save_item:
+                if (itemName.getText().toString().equals("")) {
+                    itemName.setError(getString(R.string.error_empty));
+                    return true;
+                }
                 saveUiData();
                 shoppingItemDao.createOrUpdateItem(editedItem);
                 Toast.makeText(this, getString(R.string.item_save), Toast.LENGTH_SHORT).show();
+                EventBus.getDefault().post(new ShoppingListUpdateEvent());
                 finish();
                 return true;
             case R.id.menu_delete_item:
@@ -118,6 +125,7 @@ public class SingleItemActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(this, getString(R.string.move_arch), Toast.LENGTH_SHORT).show();
                 }
+                EventBus.getDefault().post(new ShoppingListUpdateEvent());
                 finish();
                 return true;
 

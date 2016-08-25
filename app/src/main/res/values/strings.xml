@@ -17,6 +17,9 @@
     <string name="item_save">Shopping item saved!</string>
     <string name="item_del">Shopping item deleted!</string>
     <string name="move_arch">Item moved to archived!</string>
+    <string name="item_sel">item selected</string>
+    <string name="items_sel">items selected</string>
+    <string name="error_empty">This field cannot be empty</string>
     <string-array name="priorities">
         <item>Low</item>
         <item>Normal</item>

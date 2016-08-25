@@ -1,4 +1,4 @@
-package com.example.shoplist.model;
+package com.example.shoplist.database;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -22,10 +22,10 @@ public class ShoppingItem {
     public static final String PRIORITy_COLUMN_NAME = "priority";
     public static final String IMAGE_URI_COLUMN_NAME = "image_uri";
 
-    public static enum ShoppingPriority {
+    public enum ShoppingPriority {
         LOW,
         NORMAL,
-        HIGH;
+        HIGH
     }
 
     @DatabaseField(columnName = ID_COLUMN_NAME, generatedId = true)

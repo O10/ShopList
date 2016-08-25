@@ -124,7 +124,7 @@
                 android:background="@android:color/darker_gray" />
 
 
-            <!-- ITEM PRIORITY SECTION -->
+            <!-- ITEM PRIORITY- SECTION -->
             <TextView
                 android:id="@+id/priority"
                 android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.shoplist.model;
+package com.example.shoplist.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +13,8 @@ import java.util.Calendar;
 
 /**
  * Created by O10 on 23.08.2016.
+ * Main helper used for accessing and managing SQLite database
+ * For getting an instance use OpenHelperManager.getHelper(getContext(), DatabaseHelper.class)
  */
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -52,6 +54,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return shoppingItemDao;
     }
 
+    /*
+    Function initializes database with some random entries
+     */
     private void initDatabase() throws SQLException {
         final ShoppingItemDao shoppingItemDao = getShoppingItemDao();
 
